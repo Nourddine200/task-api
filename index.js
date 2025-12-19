@@ -132,7 +132,7 @@ app.delete('/tasks/:id', (req, res) => {
 // Start server
 // Using port 8080 as default (Replit's most stable port)
 // Replit will override this with process.env.PORT if set
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 const HOST = '0.0.0.0';
 
 app.listen(PORT, HOST, () => {

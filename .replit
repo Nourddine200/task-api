@@ -1,6 +1,7 @@
 run = "node index.js"
 entrypoint = "index.js"
 language = "nodejs"
+modules = ["nodejs-20"]
 
 [nix]
 channel = "stable-22_11"
@@ -8,3 +9,34 @@ channel = "stable-22_11"
 [deploy]
 publicDir = "/"
 run = ["sh", "-c", "node index.js"]
+
+[agent]
+expertMode = true
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Task API Server"
+
+[[workflows.workflow]]
+name = "Task API Server"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm start"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
