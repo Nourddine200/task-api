@@ -1,12 +1,10 @@
-run = "dart run bin/server.dart"
-entrypoint = "bin/server.dart"
-language = "dart"
-modules = ["nodejs-14"]
+run = "node index.js"
+entrypoint = "index.js"
+language = "nodejs"
 
 [nix]
-channel = "stable-25_05"
+channel = "stable-22_11"
 
 [deploy]
 publicDir = "/"
-run = ["sh", "-c", "dart run bin/server.dart"]
-
+run = ["sh", "-c", "node index.js"]
