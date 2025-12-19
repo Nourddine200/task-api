@@ -9,6 +9,7 @@ channel = "stable-22_11"
 [deploy]
 publicDir = "/"
 run = ["sh", "-c", "node index.js"]
+<<<<<<< HEAD
 
 [agent]
 expertMode = true
@@ -40,3 +41,5 @@ outputType = "webview"
 [[ports]]
 localPort = 5000
 externalPort = 80
+=======
+>>>>>>> 9eede52d91155c8ea0a968fe96c243979e993720
